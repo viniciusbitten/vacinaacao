@@ -1,0 +1,59 @@
+<!--
+  Generated template for the EditarEnderecoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Endereco</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        
+          <ion-item>
+            <ion-label stacked>CEP</ion-label>
+            <ion-input [(ngModel)]="paciente.cep" [brmasker]="{mask:'00000-000', len:9, type:'number'}"></ion-input>
+            
+          </ion-item>            
+
+          <div [hidden]="!cepInformado">
+            <ion-item>
+                <ion-label color="primary" stacked>Logradouro</ion-label>
+                <ion-input [(ngModel)]="paciente.logradouro" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Número</ion-label>
+                <ion-input [(ngModel)]="paciente.numero" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Complemento</ion-label>
+                <ion-input [(ngModel)]="paciente.complemento" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Bairro</ion-label>
+                <ion-input [(ngModel)]="paciente.bairro" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Cidade</ion-label>
+                <ion-input [(ngModel)]="paciente.cidade" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>UF</ion-label>
+                <ion-input [(ngModel)]="paciente.uf" type="text"></ion-input>
+            </ion-item>
+
+        </div>
+
+        </ion-list>
+
+        <button *ngIf="!cepInformado" (click)="continuar()" [disabled]="!isCEPValid()" ion-button full>Continuar</button>
+        <button *ngIf="cepInformado" (click)="gravar()" ion-button full>Gravar</button>
+
+</ion-content>

@@ -1,18 +1,50 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
+      <ion-buttons *ngIf="modo===2">
+        <button ion-button (click)="voltar()"> Voltar </button>
+      </ion-buttons> 
+    <ion-title>Vacinação Niterói</ion-title>
+      
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div row text-center *ngIf="modo === 0">
+    <p>Cartão SUS:</p>
+    <ion-input type="number" #input text-center [(ngModel)]="numeroCartao" class="input-app" name="numeroCartao" type="text"></ion-input>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-list *ngIf="modo === 1">
+      <ion-item>
+        <ion-label stacked>Nome do Paciente:</ion-label>
+        <ion-input type="text" #nome [(ngModel)]="nomeValue" name="pacienteNome" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Nome da Mãe:</ion-label>
+        <ion-input type="text" [(ngModel)]="nomeMaeValue" style="margin-top: 10px" name="pacienteMae" type="text"></ion-input>    
+      </ion-item>
+    </ion-list>
+      <button *ngIf="modo === 0" ion-button full (click)="buscaCartao()">Buscar </button>
+      <button *ngIf="modo === 1" ion-button full (click)="buscaNome()">Buscar</button>
+      
+      <br>
+
+      <div *ngIf="modo === 0" row text-center> 
+          <button ion-button outline (click)="modoPesquisa()">Pesquisar por nome</button>
+      </div>
+      
+      
+      <div *ngIf="modo === 1" row text-center> 
+          <button ion-button outline (click)="novoCadastro()">Não tem cadastro</button>
+      </div>
+
+      <!-- align to the bottom of the page -->
+      <div style="position: absolute; bottom: 15px; width: 100%">
+        <div style="text-align: center">
+          <img src="assets/imgs/pref.png">
+        </div>
+      </div>
+      
+  
 </ion-content>

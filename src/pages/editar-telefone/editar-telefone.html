@@ -1,0 +1,21 @@
+<!--
+  Generated template for the EditarTelefonePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Telefone</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <p>Telefone:</p>
+    <ion-input type="number" #input [brmasker]="{phone: true}" text-center [(ngModel)]="paciente.telefone" class="input-app" name="numeroCartao" type="text"></ion-input>
+    <button ion-button full (click)="gravar()">Gravar</button>
+    
+</ion-content>

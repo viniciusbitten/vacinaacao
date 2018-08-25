@@ -1,0 +1,92 @@
+<!--
+  Generated template for the PacienteNovoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Paciente</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #eee">
+
+<ion-list>
+    <ion-item>
+      <ion-label color="primary" stacked>Nome</ion-label>
+      <ion-input [(ngModel)]="paciente.nome" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Nome da Mãe</ion-label>
+        <ion-input [(ngModel)]="paciente.nomeMae" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Data de Nascimento</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="paciente.dataNascimento"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Sexo</ion-label>
+        <ion-select [(ngModel)]="paciente.sexo">
+          <ion-option value="0">Masculino</ion-option>
+          <ion-option value="1">Feminino</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Raça</ion-label>
+        <ion-select [(ngModel)]="paciente.raca">
+          <ion-option value="0">Não informada</ion-option>
+          <ion-option value="1">Amarela</ion-option>
+          <ion-option value="2">Branco</ion-option>
+          <ion-option value="3">Indígena</ion-option>
+          <ion-option value="4">Parda</ion-option>
+          <ion-option value="5">Negra</ion-option>
+        </ion-select>
+    </ion-item>
+    
+</ion-list>
+<ion-list>
+    <ion-item>
+        <ion-label color="primary" stacked>CEP</ion-label>
+        <ion-input [(ngModel)]="paciente.cep" type="text" (focusout)="completaCEP()" [brmasker]="{mask:'00000-000', len:9, type:'number'}"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Logradouro</ion-label>
+        <ion-input [(ngModel)]="paciente.logradouro" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Número</ion-label>
+        <ion-input [(ngModel)]="paciente.numero" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Complemento</ion-label>
+        <ion-input [(ngModel)]="paciente.complemento" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Bairro</ion-label>
+        <ion-input [(ngModel)]="paciente.bairro" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>Cidade</ion-label>
+        <ion-input [(ngModel)]="paciente.cidade" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>UF</ion-label>
+        <ion-input [(ngModel)]="paciente.uf" type="text"></ion-input>
+    </ion-item>
+</ion-list>
+<ion-list>
+    <ion-item>
+        <ion-label color="primary" stacked>Telefone</ion-label>
+        <ion-input [(ngModel)]="paciente.telefone" type="text" [brmasker]="{phone: true}"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="primary" stacked>E-mail</ion-label>
+        <ion-input [(ngModel)]="paciente.email" type="email"></ion-input>
+    </ion-item>
+</ion-list>
+<button ion-button full (click)="gravar()">Gravar</button>
+</ion-content>
